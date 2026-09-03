@@ -3,25 +3,628 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Recruit NG | Find Your Next Opportunity</title>
+
+  <meta name="description" content="Recruit NG connects job seekers with verified job opportunities from employers across Nigeria.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f9fc;
+      color: #10233f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .navbar {
+      background: #071b36;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .logo-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #168cff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-button {
+      background: #168cff;
+      padding: 11px 18px;
+      border-radius: 7px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #071b36, #0c315c);
+      color: white;
+      padding: 90px 7% 100px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(22, 140, 255, 0.15);
+      border: 1px solid rgba(22, 140, 255, 0.5);
+      color: #75bdff;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.15;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero h1 span {
+      color: #168cff;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 22px auto 32px;
+      font-size: 18px;
+      color: #d8e5f4;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 7px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .primary-button {
+      background: #168cff;
+      color: white;
+    }
+
+    .secondary-button {
+      background: white;
+      color: #071b36;
+    }
+
+    .search-area {
+      background: white;
+      width: 86%;
+      max-width: 1000px;
+      margin: -35px auto 60px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .search-area h3 {
+      margin-bottom: 15px;
+      color: #071b36;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #d6dce5;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search-box button {
+      border: none;
+      background: #168cff;
+      color: white;
+      padding: 0 25px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 30px 7% 70px;
+      max-width: 1250px;
+      margin: auto;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      color: #071b36;
+    }
+
+    .section-heading a {
+      color: #168cff;
+      font-weight: bold;
+    }
+
+    .jobs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .job-card {
+      background: white;
+      border: 1px solid #e3e8ef;
+      border-radius: 10px;
+      padding: 24px;
+      transition: 0.2s;
+    }
+
+    .job-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    }
+
+    .company {
+      color: #168cff;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .job-card h3 {
+      font-size: 19px;
+      margin-bottom: 12px;
+      color: #071b36;
+    }
+
+    .job-info {
+      color: #65758b;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .job-type {
+      display: inline-block;
+      background: #edf6ff;
+      color: #1476c9;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 14px;
+    }
+
+    .apply-link {
+      display: block;
+      margin-top: 18px;
+      color: #168cff;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .trust-section {
+      background: #eef5fc;
+      padding: 70px 7%;
+      text-align: center;
+    }
+
+    .trust-section h2 {
+      font-size: 30px;
+      color: #071b36;
+      margin-bottom: 15px;
+    }
+
+    .trust-section p {
+      max-width: 700px;
+      margin: auto;
+      color: #53657b;
+    }
+
+    .features {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature {
+      background: white;
+      padding: 28px 22px;
+      border-radius: 10px;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: #e7f3ff;
+      color: #168cff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto auto 15px;
+      font-weight: bold;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+      color: #071b36;
+    }
+
+    .feature p {
+      font-size: 14px;
+    }
+
+    .employer-section {
+      padding: 80px 7%;
+      background: white;
+      text-align: center;
+    }
+
+    .employer-section h2 {
+      font-size: 32px;
+      color: #071b36;
+      margin-bottom: 15px;
+    }
+
+    .employer-section p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #596b80;
+    }
+
+    footer {
+      background: #071b36;
+      color: white;
+      padding: 45px 7% 25px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-brand {
+      max-width: 350px;
+    }
+
+    .footer-brand h2 {
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: #b8c7d9;
+      font-size: 14px;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #b8c7d9;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #24405f;
+      margin-top: 35px;
+      padding-top: 20px;
+      color: #9eb0c5;
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 6% 80px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        padding: 14px;
+      }
+
+      .jobs {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading a {
+        display: inline-block;
+        margin-top: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Recruit NG</h1>
+  <nav class="navbar">
 
-  <h2>Find Your Next Opportunity</h2>
+    <a href="#" class="logo">
+      <div class="logo-box">RN</div>
+      Recruit NG
+    </a>
 
-  <p>
-    Discover verified job opportunities from employers across Nigeria.
-  </p>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#jobs">Find Jobs</a>
+      <a href="#employers">For Employers</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-button">Contact Us</a>
+    </div>
 
-  <button>Find Jobs</button>
-  <button>For Employers</button>
+  </nav>
 
-  <h2>Latest Job Opportunities</h2>
 
-  <p>New opportunities will appear here.</p>
+  <section class="hero">
+
+    <div class="hero-badge">
+      VERIFIED JOB OPPORTUNITIES
+    </div>
+
+    <h1>
+      Find Your Next <span>Opportunity.</span>
+    </h1>
+
+    <p>
+      Discover verified job opportunities from employers across Nigeria
+      and take the next step in your career.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#jobs" class="primary-button">Find Jobs</a>
+      <a href="#employers" class="secondary-button">Post a Vacancy</a>
+    </div>
+
+  </section>
+
+
+  <section class="search-area">
+
+    <h3>Search for jobs</h3>
+
+    <div class="search-box">
+      <input type="text" placeholder="Job title, keyword or company">
+      <button>Search Jobs</button>
+    </div>
+
+  </section>
+
+
+  <section class="section" id="jobs">
+
+    <div class="section-heading">
+      <h2>Latest Opportunities</h2>
+      <a href="#">View All Jobs →</a>
+    </div>
+
+    <div class="jobs">
+
+      <div class="job-card">
+        <div class="company">Recruit NG</div>
+        <h3>Customer Success Specialist</h3>
+        <div class="job-info">📍 Lagos, Nigeria</div>
+        <div class="job-info">💼 Full Time</div>
+        <div class="job-info">🏠 Hybrid</div>
+        <span class="job-type">FULL TIME</span>
+        <a href="#" class="apply-link">View Job →</a>
+      </div>
+
+
+      <div class="job-card">
+        <div class="company">Recruit NG</div>
+        <h3>Data Analyst</h3>
+        <div class="job-info">📍 Abuja, Nigeria</div>
+        <div class="job-info">💼 Full Time</div>
+        <div class="job-info">🏠 Remote</div>
+        <span class="job-type">REMOTE</span>
+        <a href="#" class="apply-link">View Job →</a>
+      </div>
+
+
+      <div class="job-card">
+        <div class="company">Recruit NG</div>
+        <h3>Administrative Assistant</h3>
+        <div class="job-info">📍 Anambra, Nigeria</div>
+        <div class="job-info">💼 Full Time</div>
+        <div class="job-info">🏢 On-site</div>
+        <span class="job-type">FULL TIME</span>
+        <a href="#" class="apply-link">View Job →</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="trust-section" id="about">
+
+    <h2>Why Recruit NG?</h2>
+
+    <p>
+      We help job seekers discover opportunities while helping employers
+      reach qualified candidates across Nigeria.
+    </p>
+
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        <h3>Verified Opportunities</h3>
+        <p>
+          We focus on promoting legitimate vacancies and connecting
+          candidates with genuine opportunities.
+        </p>
+      </div>
+
+
+      <div class="feature">
+        <div class="feature-icon">NG</div>
+        <h3>Built for Nigeria</h3>
+        <p>
+          Discover opportunities from employers recruiting across
+          different locations in Nigeria.
+        </p>
+      </div>
+
+
+      <div class="feature">
+        <div class="feature-icon">→</div>
+        <h3>Easy to Find</h3>
+        <p>
+          Search and discover relevant opportunities without unnecessary
+          complications.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="employer-section" id="employers">
+
+    <h2>Are You Hiring?</h2>
+
+    <p>
+      Reach qualified candidates across Nigeria by promoting your vacancy
+      through Recruit NG.
+    </p>
+
+    <a href="#" class="primary-button">Submit a Vacancy</a>
+
+  </section>
+
+
+  <footer id="contact">
+
+    <div class="footer-content">
+
+      <div class="footer-brand">
+        <h2>Recruit NG</h2>
+        <p>
+          Connecting Nigerian employers with quality candidates and
+          helping job seekers discover genuine opportunities.
+        </p>
+      </div>
+
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#jobs">Find Jobs</a>
+        <a href="#employers">For Employers</a>
+        <a href="#about">About Us</a>
+      </div>
+
+
+      <div class="footer-links">
+        <h3>Contact</h3>
+        <a href="mailto:recriutng.team@gmail.com">
+          Email Recruit NG
+        </a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Telegram</a>
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 Recruit NG. All rights reserved.
+    </div>
+
+  </footer>
 
 </body>
-</html>
+  </html>
