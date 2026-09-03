@@ -1095,3 +1095,187 @@
         </div>
 
         <div cl
+<script>
+
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+
+function closeMenu() {
+  document.getElementById("mobileMenu").style.display = "none";
+}
+
+
+function filterJobs() {
+
+  const searchInput = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const locationFilter = document
+    .getElementById("locationFilter")
+    .value
+    .toLowerCase();
+
+  const jobs = document.querySelectorAll(".job-card");
+
+  let visibleJobs = 0;
+
+  jobs.forEach(function(job) {
+
+    const title = job.dataset.title.toLowerCase();
+    const company = job.dataset.company.toLowerCase();
+    const location = job.dataset.location.toLowerCase();
+
+    const matchesSearch =
+      searchInput === "" ||
+      title.includes(searchInput) ||
+      company.includes(searchInput) ||
+      location.includes(searchInput);
+
+    const matchesLocation =
+      locationFilter === "" ||
+      location.includes(locationFilter);
+
+    if (matchesSearch && matchesLocation) {
+      job.style.display = "block";
+      visibleJobs++;
+    } else {
+      job.style.display = "none";
+    }
+
+  });
+
+  document.getElementById("resultsCount").textContent =
+    "Showing " + visibleJobs + " opportunit" +
+    (visibleJobs === 1 ? "y" : "ies");
+
+}
+
+
+function openJob(title, company, location, type, setting, description) {
+
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalCompany").textContent = company;
+
+  document.getElementById("modalDetails").textContent =
+    "📍 " + location +
+    "   •   💼 " + type +
+    "   •   🏢 " + setting;
+
+  document.getElementById("modalDescription").textContent =
+    description;
+
+  document.getElementById("jobModal").style.display = "block";
+
+  document.body.style.overflow = "hidden";
+}
+
+
+function closeModal() {
+
+  document.getElementById("jobModal").style.display = "none";
+
+  document.body.style.overflow = "auto";
+}
+
+
+function closeModalOutside(event) {
+
+  if (event.target === document.getElementById("jobModal")) {
+    closeModal();
+  }
+
+}
+
+
+function submitVacancy(event) {
+
+  event.preventDefault();
+
+  const company =
+    document.getElementById("companyName").value;
+
+  const email =
+    document.getElementById("companyEmail").value;
+
+  const jobTitle =
+    document.getElementById("jobTitle").value;
+
+  const location =
+    document.getElementById("jobLocation").value;
+
+  const jobType =
+    document.getElementById("jobType").value;
+
+  const setting =
+    document.getElementById("workSetting").value;
+
+  const description =
+    document.getElementById("jobDescription").value;
+
+
+  const subject =
+    "New Vacancy Submission - " + jobTitle;
+
+  const body =
+    "COMPANY NAME: " + company + "\n\n" +
+    "COMPANY EMAIL: " + email + "\n\n" +
+    "JOB TITLE: " + jobTitle + "\n\n" +
+    "LOCATION: " + location + "\n\n" +
+    "JOB TYPE: " + jobType + "\n\n" +
+    "WORK SETTING: " + setting + "\n\n" +
+    "JOB DESCRIPTION:\n" + description;
+
+
+  window.location.href =
+    "mailto:recriutng.team@gmail.com" +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+}
+
+
+window.addEventListener("scroll", function() {
+
+  const button = document.getElementById("topButton");
+
+  if (window.scrollY > 500) {
+    button.style.display = "block";
+  } else {
+    button.style.display = "none";
+  }
+
+});
+
+
+function scrollToTop() {
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    closeModal();
+  }
+
+});
+
+
+        </script>
+        </body>
+        </html>
