@@ -532,5 +532,752 @@
       }
 
       .search-btn {
-        padding: 14px;
+        padding: 14px;      }
+
+      .job-top {
+        flex-direction: column;
+      }
+
+      .view-btn {
+        width: 100%;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .modal-content {
+        padding: 25px 20px;
+        margin: 30px auto;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+
+      <a href="index.html" class="logo">
+        Recruit <span>NG</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="jobs.html">Find Jobs</a>
+        <a href="index.html#employers">For Employers</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        ☰
+      </button>
+
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Find Your Next <span>Opportunity</span>
+      </h1>
+
+      <p>
+        Discover verified job opportunities across Nigeria with Recruit NG.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SEARCH -->
+  <div class="search-wrapper">
+
+    <div class="search-box">
+
+      <div class="search-grid">
+
+        <div class="search-field">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search job title or company..."
+          >
+        </div>
+
+        <div class="search-field">
+
+          <select id="locationFilter">
+
+            <option value="">Location</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Abuja">Abuja</option>
+            <option value="Anambra">Anambra</option>
+            <option value="Port Harcourt">Port Harcourt</option>
+            <option value="Enugu">Enugu</option>
+            <option value="Remote">Remote</option>
+
+          </select>
+
+        </div>
+
+        <div class="search-field">
+
+          <select id="typeFilter">
+
+            <option value="">Job Type</option>
+            <option value="Full Time">Full Time</option>
+            <option value="Part Time">Part Time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+
+          </select>
+
+        </div>
+
+        <div class="search-field">
+
+          <select id="settingFilter">
+
+            <option value="">Work Setting</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On-site">On-site</option>
+
+          </select>
+
+        </div>
+
+        <button class="search-btn" id="searchBtn">
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JOB DIRECTORY -->
+  <main>
+
+    <section class="jobs-section">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Latest Job Opportunities</h2>
+
+          <p>
+            Browse available opportunities and find your next career move.
+          </p>
+        </div>
+
+        <div id="resultsCount">
+          3 jobs found
+        </div>
+
+      </div>
+
+
+      <div class="jobs-list" id="jobsList">
+
+
+        <!-- JOB 1 -->
+        <article
+          class="job-card"
+          data-title="HR & Data Analyst"
+          data-company="COISCO"
+          data-location="Anambra"
+          data-type="Full Time"
+          data-setting="Hybrid"
+          data-description="This is a demo listing created for testing the Recruit NG job directory."
+          data-apply="#"
+        >
+
+          <div class="job-top">
+
+            <div>
+
+              <span class="demo-label">
+                DEMO LISTING
+              </span>
+
+              <div class="job-company">
+                COISCO
+              </div>
+
+              <h3>
+                HR & Data Analyst
+              </h3>
+
+              <div class="job-meta">
+
+                <span class="meta">
+                  📍 Anambra
+                </span>
+
+                <span class="meta">
+                  💼 Full Time
+                </span>
+
+                <span class="meta">
+                  🏢 Hybrid
+                </span>
+
+              </div>
+
+            </div>
+
+            <button class="view-btn">
+              View Job
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- JOB 2 -->
+        <article
+          class="job-card"
+          data-title="Customer Support Specialist"
+          data-company="Recruit NG Demo"
+          data-location="Lagos"
+          data-type="Full Time"
+          data-setting="Remote"
+          data-description="This is a demo listing created for testing the Recruit NG job directory."
+          data-apply="#"
+        >
+
+          <div class="job-top">
+
+            <div>
+
+              <span class="demo-label">
+                DEMO LISTING
+              </span>
+
+              <div class="job-company">
+                Recruit NG Demo
+              </div>
+
+              <h3>
+                Customer Support Specialist
+              </h3>
+
+              <div class="job-meta">
+
+                <span class="meta">
+                  📍 Lagos
+                </span>
+
+                <span class="meta">
+                  💼 Full Time
+                </span>
+
+                <span class="meta">
+                  🌐 Remote
+                </span>
+
+              </div>
+
+            </div>
+
+            <button class="view-btn">
+              View Job
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- JOB 3 -->
+        <article
+          class="job-card"
+          data-title="Administrative Assistant"
+          data-company="Recruit NG Demo"
+          data-location="Abuja"
+          data-type="Internship"
+          data-setting="On-site"
+          data-description="This is a demo listing created for testing the Recruit NG job directory."
+          data-apply="#"
+        >
+
+          <div class="job-top">
+
+            <div>
+
+              <span class="demo-label">
+                DEMO LISTING
+              </span>
+
+              <div class="job-company">
+                Recruit NG Demo
+              </div>
+
+              <h3>
+                Administrative Assistant
+              </h3>
+
+              <div class="job-meta">
+
+                <span class="meta">
+                  📍 Abuja
+                </span>
+
+                <span class="meta">
+                  💼 Internship
+                </span>
+
+                <span class="meta">
+                  🏢 On-site
+                </span>
+
+              </div>
+
+            </div>
+
+            <button class="view-btn">
+              View Job
+            </button>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- NO RESULTS -->
+      <div class="no-results" id="noResults">
+
+        <h3>
+          No jobs found
+        </h3>
+
+        <p>
+          Try changing your search or filters.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFO -->
+    <section class="info-section">
+
+      <div>
+
+        <h2>
+          Looking for your next opportunity?
+        </h2>
+
+        <p>
+          Recruit NG connects job seekers with verified employers and
+          recruitment opportunities across Nigeria.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- JOB MODAL -->
+  <div class="modal" id="jobModal">
+
+    <div class="modal-content">
+
+      <button
+        class="close-btn"
+        id="closeModal"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div class="modal-company" id="modalCompany"></div>
+
+      <h2 id="modalTitle"></h2>
+
+      <div class="modal-meta">
+
+        <span class="meta" id="modalLocation"></span>
+
+        <span class="meta" id="modalType"></span>
+
+        <span class="meta" id="modalSetting"></span>
+
+      </div>
+
+      <p
+        class="modal-description"
+        id="modalDescription"
+      ></p>
+
+      <a
+        href="#"
+        class="apply-btn"
+        id="modalApply"
+      >
+        Apply for this Job
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+
+        <div class="logo">
+          Recruit <span>NG</span>
+        </div>
+
+        <p>
+          Connecting Nigerian employers with quality candidates
+          and verified job opportunities.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="jobs.html">
+          Find Jobs
+        </a>
+
+        <a href="index.html#employers">
+          For Employers
+        </a>
+
+        <a href="index.html#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Recruit NG. All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const locationFilter =
+      document.getElementById("locationFilter");
+
+    const typeFilter =
+      document.getElementById("typeFilter");
+
+    const settingFilter =
+      document.getElementById("settingFilter");
+
+    const searchBtn =
+      document.getElementById("searchBtn");
+
+    const jobs =
+      document.querySelectorAll(".job-card");
+
+    const jobsList =
+      document.getElementById("jobsList");
+
+    const noResults =
+      document.getElementById("noResults");
+
+    const resultsCount =
+      document.getElementById("resultsCount");
+
+
+    function filterJobs() {
+
+      const search =
+        searchInput.value
+          .toLowerCase()
+          .trim();
+
+      const location =
+        locationFilter.value;
+
+      const type =
+        typeFilter.value;
+
+      const setting =
+        settingFilter.value;
+
+      let visibleJobs = 0;
+
+
+      jobs.forEach(function(job) {
+
+        const title =
+          job.dataset.title.toLowerCase();
+
+        const company =
+          job.dataset.company.toLowerCase();
+
+        const jobLocation =
+          job.dataset.location;
+
+        const jobType =
+          job.dataset.type;
+
+        const jobSetting =
+          job.dataset.setting;
+
+
+        const matchesSearch =
+          !search ||
+          title.includes(search) ||
+          company.includes(search);
+
+        const matchesLocation =
+          !location ||
+          jobLocation === location;
+
+        const matchesType =
+          !type ||
+          jobType === type;
+
+        const matchesSetting =
+          !setting ||
+          jobSetting === setting;
+
+
+        if (
+          matchesSearch &&
+          matchesLocation &&
+          matchesType &&
+          matchesSetting
+        ) {
+
+          job.style.display = "block";
+          visibleJobs++;
+
+        } else {
+
+          job.style.display = "none";
+
+        }
+
+      });
+
+
+      resultsCount.textContent =
+        visibleJobs +
+        (visibleJobs === 1 ? " job found" : " jobs found");
+
+
+      if (visibleJobs === 0) {
+
+        noResults.style.display = "block";
+
+      } else {
+
+        noResults.style.display = "none";
+
+      }
+
+    }
+
+
+    searchBtn.addEventListener(
+      "click",
+      filterJobs
+    );
+
+
+    searchInput.addEventListener(
+      "input",
+      filterJobs
+    );
+
+
+    locationFilter.addEventListener(
+      "change",
+      filterJobs
+    );
+
+
+    typeFilter.addEventListener(
+      "change",
+      filterJobs
+    );
+
+
+    settingFilter.addEventListener(
+      "change",
+      filterJobs
+    );
+
+
+    /* JOB MODAL */
+
+    const modal =
+      document.getElementById("jobModal");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalCompany =
+      document.getElementById("modalCompany");
+
+    const modalLocation =
+      document.getElementById("modalLocation");
+
+    const modalType =
+      document.getElementById("modalType");
+
+    const modalSetting =
+      document.getElementById("modalSetting");
+
+    const modalDescription =
+      document.getElementById("modalDescription");
+
+    const modalApply =
+      document.getElementById("modalApply");
+
+
+    document.querySelectorAll(".view-btn")
+      .forEach(function(button) {
+
+        button.addEventListener(
+          "click",
+          function() {
+
+            const job =
+              button.closest(".job-card");
+
+            modalTitle.textContent =
+              job.dataset.title;
+
+            modalCompany.textContent =
+              job.dataset.company;
+
+            modalLocation.textContent =
+              "📍 " + job.dataset.location;
+
+            modalType.textContent =
+              "💼 " + job.dataset.type;
+
+            modalSetting.textContent =
+              "🏢 " + job.dataset.setting;
+
+            modalDescription.textContent =
+              job.dataset.description;
+
+            modalApply.href =
+              job.dataset.apply;
+
+            modal.style.display = "block";
+
+          }
+        );
+
+      });
+
+
+    closeModal.addEventListener(
+      "click",
+      function() {
+
+        modal.style.display = "none";
+
+      }
+    );
+
+
+    modal.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === modal) {
+
+          modal.style.display = "none";
+
+        }
+
+      }
+    );
+
+
+    /* MOBILE MENU */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+      "click",
+      function() {
+
+        navLinks.classList.toggle("active");
+
+      }
+    );
+
+
+    navLinks.querySelectorAll("a")
+      .forEach(function(link) {
+
+        link.addEventListener(
+          "click",
+          function() {
+
+            navLinks.classList.remove("active");
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
      
