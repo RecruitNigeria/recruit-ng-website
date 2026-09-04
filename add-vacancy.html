@@ -621,4 +621,200 @@
     </section>
 
 
-    <!--
+    <!-- APPLICATION -->
+
+    <section class="form-card">
+
+        <h2 class="section-title">
+            Application Information
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label for="datePosted">
+                    Date Posted
+                </label>
+
+                <input
+                    type="date"
+                    id="datePosted"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="deadline">
+                    Application Deadline
+                </label>
+
+                <input
+                    type="date"
+                    id="deadline"
+                >
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="applyLink">
+                    Application Link
+                </label>
+
+                <input
+                    type="url"
+                    id="applyLink"
+                    placeholder="https://example.com/apply"
+                >
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="howToApply">
+                    How to Apply
+                </label>
+
+                <textarea
+                    id="howToApply"
+                    placeholder="Explain how candidates should apply."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS -->
+
+    <section class="form-card">
+
+        <h2 class="section-title">
+            Vacancy Status
+        </h2>
+
+        <div class="checkbox-row">
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    id="verified"
+                >
+
+                Verified Employer
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    id="urgent"
+                >
+
+                Urgent Hiring
+
+            </label>
+
+
+            <label class="checkbox-item">
+
+                <input
+                    type="checkbox"
+                    id="published"
+                    checked
+                >
+
+                Publish Vacancy
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACTIONS -->
+
+    <section class="form-card">
+
+        <div class="actions">
+
+            <a
+                href="admin.html"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="saveVacancy()"
+            >
+                Publish Vacancy
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+function saveVacancy() {
+
+    const jobTitle =
+        document.getElementById("jobTitle").value.trim();
+
+    const company =
+        document.getElementById("company").value.trim();
+
+    const location =
+        document.getElementById("location").value.trim();
+
+    const description =
+        document.getElementById("description").value.trim();
+
+
+    if (
+        jobTitle === "" ||
+        company === "" ||
+        location === "" ||
+        description === ""
+    ) {
+
+        alert(
+            "Please complete the required fields: Job Title, Company, Location and Job Description."
+        );
+
+        return;
+    }
+
+
+    document.getElementById("successMessage").style.display =
+        "block";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+                        </html>
