@@ -930,6 +930,8 @@ data-urgent="true"
 
       <div class="modal-company" id="modalCompany"></div>
 
+<div class="job-status" id="modalStatus"></div>
+
       <h2 id="modalTitle"></h2>
 
       <div class="modal-meta">
@@ -1259,6 +1261,8 @@ const modalDatePosted =
 
 const modalHowToApply =
     document.getElementById("modalHowToApply");
+    const modalStatus =
+    document.getElementById("modalStatus");
 
 
     document.querySelectorAll(".view-btn")
@@ -1276,6 +1280,17 @@ const modalHowToApply =
 
             modalCompany.textContent =
               job.dataset.company;
+            modalStatus.innerHTML = "";
+
+if (job.dataset.verified === "true") {
+    modalStatus.innerHTML +=
+        '<span class="verified-badge">✓ Verified Employer</span>';
+}
+
+if (job.dataset.urgent === "true") {
+    modalStatus.innerHTML +=
+        '<span class="urgent-badge">🔥 Urgent Hiring</span>';
+    }
 
             modalLocation.textContent =
               "📍 " + job.dataset.location;
