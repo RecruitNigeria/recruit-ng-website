@@ -1284,6 +1284,27 @@ modalBenefits.innerHTML = job.dataset.benefits
     .join("");
 
 modalDeadline.textContent = job.dataset.deadline || "Not specified";
+            modalSalary.textContent =
+    job.dataset.salary || "Not specified";
+
+modalExperience.textContent =
+    job.dataset.experience || "Not specified";
+
+modalEducation.textContent =
+    job.dataset.education || "Not specified";
+
+modalSkills.innerHTML = job.dataset.skills
+    ? job.dataset.skills
+        .split(";")
+        .map(item => `<li>${item.trim()}</li>`)
+        .join("")
+    : "<li>Not specified</li>";
+
+modalDatePosted.textContent =
+    job.dataset.datePosted || "Not specified";
+
+modalHowToApply.textContent =
+    job.dataset.howToApply || "Not specified";
 
             modalApply.href =
               job.dataset.apply;
