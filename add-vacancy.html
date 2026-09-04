@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Vacancy | Recruit NG Admin</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #10233f;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #071a33;
+            color: white;
+            padding: 14px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 19px;
+        }
+
+        .brand-text span {
+            font-size: 12px;
+            color: #b8c7da;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            background: #168cff;
+            padding: 10px 16px;
+            border-radius: 8px;
+        }
+
+        .back-link:hover {
+            opacity: 0.9;
+        }
+
+        /* PAGE */
+
+        .page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px 60px;
+        }
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: #66758a;
+            font-size: 15px;
+        }
+
+        /* FORM */
+
+        .form-card {
+            background: white;
+            border: 1px solid #e1e7ef;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(7, 26, 51, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 19px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e7edf5;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #243b5a;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #d5deea;
+            border-radius: 9px;
+            padding: 13px 14px;
+            font-size: 14px;
+            font-family: inherit;
+            background: white;
+            color: #10233f;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #168cff;
+            box-shadow: 0 0 0 3px rgba(22, 140, 255, 0.08);
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .small-help {
+            font-size: 12px;
+            color: #7a8798;
+            margin-top: 6px;
+        }
+
+        /* CHECKBOXES */
+
+        .checkbox-row {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        /* ACTIONS */
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 9px;
+            padding: 13px 22px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            background: #e9eef5;
+            color: #243b5a;
+        }
+
+        .btn-primary {
+            background: #168cff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0878df;
+        }
+
+        /* SUCCESS */
+
+        .success-message {
+            display: none;
+            background: #e8f8ef;
+            border: 1px solid #a9dfbf;
+            color: #17663b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 12px 4%;
+            }
+
+            .brand img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .brand-text strong {
+                font-size: 16px;
+            }
+
+            .brand-text span {
+                font-size: 10px;
+            }
+
+            .back-link {
+                padding: 9px 12px;
+                font-size: 12px;
+            }
+
+            .page {
+                margin: 25px auto;
+                padding: 0 14px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 25px;
+            }
+
+            .form-card {
+                padding: 20px;
+                border-radius: 13px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 17px;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .actions {
+                justify-content: stretch;
+            }
+
+            .actions .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <img
+            src="recruit-ng-logo.png"
+            alt="Recruit NG Logo"
+        >
+
+        <div class="brand-text">
+            <strong>Recruit NG</strong>
+            <span>Admin Panel</span>
+        </div>
+
+    </div>
+
+    <a
+        href="admin.html"
+        class="back-link"
+    >
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<main class="page">
+
+    <div class="page-header">
+
+        <h1>Add New Vacancy</h1>
+
+        <p>
+            Create and publish a verified job vacancy on Recruit NG.
+        </p>
+
+    </div>
+
+
+    <div
+        class="success-message"
+        id="successMessage"
+    >
+        Vacancy saved successfully! The database connection will be added in the next stage.
+    </div>
+
+
+    <!-- BASIC INFORMATION -->
+
+    <section class="form-card">
+
+        <h2 class="section-title">
+            Basic Information
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label for="jobTitle">
+                    Job Title *
+                </label>
+
+                <input
+                    type="text"
+                    id="jobTitle"
+                    placeholder="e.g. HR & Data Analyst"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="company">
+                    Company *
+                </label>
+
+                <input
+                    type="text"
+                    id="company"
+                    placeholder="e.g. COISCO"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="location">
+                    Location *
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="e.g. Lagos, Nigeria"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="jobType">
+                    Job Type *
+                </label>
+
+                <select id="jobType">
+
+                    <option value="">
+                        Select job type
+                    </option>
+
+                    <option>
+                        Full Time
+                    </option>
+
+                    <option>
+                        Part Time
+                    </option>
+
+                    <option>
+                        Contract
+                    </option>
+
+                    <option>
+                        Internship
+                    </option>
+
+                    <option>
+                        Temporary
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="workSetting">
+                    Work Setting *
+                </label>
+
+                <select id="workSetting">
+
+                    <option value="">
+                        Select work setting
+                    </option>
+
+                    <option>
+                        Remote
+                    </option>
+
+                    <option>
+                        Hybrid
+                    </option>
+
+                    <option>
+                        On-site
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="salary">
+                    Salary / Compensation
+                </label>
+
+                <input
+                    type="text"
+                    id="salary"
+                    placeholder="e.g. ₦150,000 - ₦250,000 per month"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUALIFICATIONS -->
+
+    <section class="form-card">
+
+        <h2 class="section-title">
+            Qualifications & Experience
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label for="experience">
+                    Experience
+                </label>
+
+                <input
+                    type="text"
+                    id="experience"
+                    placeholder="e.g. 2 - 3 years"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="education">
+                    Education
+                </label>
+
+                <input
+                    type="text"
+                    id="education"
+                    placeholder="e.g. BA/BSc/HND"
+                >
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="skills">
+                    Skills
+                </label>
+
+                <input
+                    type="text"
+                    id="skills"
+                    placeholder="e.g. Microsoft Excel; Data Analysis; Communication"
+                >
+
+                <span class="small-help">
+                    Separate multiple skills with semicolons.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- JOB DETAILS -->
+
+    <section class="form-card">
+
+        <h2 class="section-title">
+            Job Details
+        </h2>
+
+        <div class="form-grid">
+
+            <div class="form-group full">
+
+                <label for="description">
+                    Job Description *
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe the role and what the successful candidate will do."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="responsibilities">
+                    Responsibilities
+                </label>
+
+                <textarea
+                    id="responsibilities"
+                    placeholder="Enter each responsibility on a new line."
+                ></textarea>
+
+                <span class="small-help">
+                    Example: Analyze business data, prepare reports, support decision-making.
+                </span>
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="requirements">
+                    Requirements
+                </label>
+
+                <textarea
+                    id="requirements"
+                    placeholder="Enter each requirement on a new line."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+                <label for="benefits">
+                    Benefits
+                </label>
+
+                <textarea
+                    id="benefits"
+                    placeholder="Enter benefits offered by the employer."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!--
