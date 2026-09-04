@@ -1231,6 +1231,22 @@ data-deadline="September 30, 2026"
 
             modalDescription.textContent =
               job.dataset.description;
+            modalResponsibilities.innerHTML = job.dataset.responsibilities
+    .split(";")
+    .map(item => `<li>${item.trim()}</li>`)
+    .join("");
+
+modalRequirements.innerHTML = job.dataset.requirements
+    .split(";")
+    .map(item => `<li>${item.trim()}</li>`)
+    .join("");
+
+modalBenefits.innerHTML = job.dataset.benefits
+    .split(";")
+    .map(item => `<li>${item.trim()}</li>`)
+    .join("");
+
+modalDeadline.textContent = job.dataset.deadline || "Not specified";
 
             modalApply.href =
               job.dataset.apply;
